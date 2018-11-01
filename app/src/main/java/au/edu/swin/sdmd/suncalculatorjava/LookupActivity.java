@@ -51,23 +51,17 @@ public class LookupActivity extends AppCompatActivity {
         return String.format(Locale.ENGLISH,"GMT%+d:00",offset-12);
     }
 
-
-    private String validate(CharSequence s){
+    private String validate(EditText et, int limit){
         try{
-            Double d = Double.parseDouble(s.toString());
-            if (d > 180) return "90";
-            if (d < -180) return "-90";
+            Double d = Double.parseDouble(et.getText().toString());
+            if (d > limit) return "+" + limit;
+            if (d < -limit) return "-" + limit;
         }
         catch (NumberFormatException nfe){
             Log.e("normalise", String.format(
-                    "\"%s\" couldn't be parsed as double.", s.toString())
+                    "\"%s\" couldn't be parsed as double.", et.getText().toString())
             );
         }
-        return s.toString();
-    }
-
-    private String validate(EditText et){
-        et.setText(validate(et.getText().toString()));
         return et.getText().toString();
     }
 
@@ -85,8 +79,8 @@ public class LookupActivity extends AppCompatActivity {
 
         Place p = new Place(
                 ((EditText)findViewById(R.id.etName)).getText().toString(),
-                validate((EditText)findViewById(R.id.etLat)),
-                validate((EditText)findViewById(R.id.etLong)),
+                validate((EditText)findViewById(R.id.etLat), 90),
+                validate((EditText)findViewById(R.id.etLong), 180),
                 ((TextView)findViewById(R.id.tvOffsetValue)).getText().toString()
         );
 
