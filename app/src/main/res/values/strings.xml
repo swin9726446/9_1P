@@ -3,4 +3,10 @@
     <string name="strDefName">Default Name</string>
     <string name="strDefZero">0.00/0.00</string>
     <string name="strDefLocale">Default/Locale</string>
+    <string name="strLookup">Lookup</string>
+    <string name="strName">Name</string>
+    <string name="strLat">Latitude</string>
+    <string name="strLong">Longitude</string>
+    <string name="strOffset">GMT Offset</string>
+    <string name="strSet">Set</string>
 </resources>
