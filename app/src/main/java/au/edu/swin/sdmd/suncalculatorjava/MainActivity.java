@@ -75,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Loads cities from both files.
+     */
     private void populatePlaceList() {
         try {
             //First, clear (the custom additions from) the old list. Otherwise I'd need a second list...
